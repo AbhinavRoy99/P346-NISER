@@ -1,0 +1,14 @@
+Number of terms 'N' is 
+10.0
+The first term 'a' is 
+100.0
+The common difference 'd' is 
+1.5
+The common ratio 'r' is 
+0.5
+The sum of AP is 
+1067.5
+The sum of GP is 
+199.8046875
+The sum of HP is 
+0.09382985024688076
