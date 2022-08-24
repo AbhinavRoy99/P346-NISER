@@ -1,0 +1,2 @@
+Sum of the series accurate to 4 decimal places is 
+0.33333587646484375
