@@ -74,37 +74,37 @@ def gaussjordan(l,k):
     y=len(l[0])
     
     
-    
     for ok in range(0,x):
         
-        for i in range(0,x):
-            for j in range(i,x):
-                if l[i][0] < l[j][0]:
-                    k[i][0], k[j][0] = k[j][0], k[i][0]
-                    for a in range(0,y):
-                        l[i][a], l[j][a] = l[j][a], l[i][a]
+
         
+        for i in range(ok+1, x):
+            if l[i][ok]>l[ok][ok]:
+                for j in range(ok,x):
+                    l[ok][j],l[i][j]=l[i][j],l[ok][j]
+                k[ok],k[i]=k[i],k[ok]
         
         t = l[ok][ok]
         
         if t != 0:
             k[ok][0] = k[ok][0]/t
-            for a in range(0,y):
+            for a in range(ok,y):
                 l[ok][a] = l[ok][a]/t
                 
         for a in [ x for x in range(0,x) if x!=ok ]:
-            k[a][0] = k[a][0] - (l[a][ok]*k[ok][0])
+            lok=l[a][ok]
+            k[a][0] = k[a][0] - (lok*k[ok][0])
             for b in range(0,y):
-                l[a][b] = l[a][b] - (l[a][ok]*l[ok][b])
+                l[a][b] = l[a][b] - (lok*l[ok][b])
     
     for a in range(0,x):
         for b in range(0,y):
-            l[a][b] = round((l[a][b]),1)
+            l[a][b] = round((l[a][b]),3)
 
     for a in range(0,x):
-        k[a][0] = round((k[a][0]),1)
+        k[a][0] = round((k[a][0]),3)
         
-    print('\n System of linear equations after Gauss Jordan is: \n')
+    print('\n System of linear equations after Gauss Jordan Elimination is: \n')
     for i in range(0,len(l)):
         print(l[i],'(','X',i+1,')',k[i])
     
